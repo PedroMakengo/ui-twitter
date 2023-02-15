@@ -16,7 +16,7 @@ export function Timeline() {
   function createNewTweet(event: FormEvent) {
     event.preventDefault();
 
-    setTweets([...tweets, newTweet]);
+    setTweets([newTweet, ...tweets]);
     setNewTweet('');
   }
 
