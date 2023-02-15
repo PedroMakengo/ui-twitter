@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import { Tweet } from './components/Tweet';
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from './routes';
+
 import { Sidebar } from './components/Sidebar';
-import { Header } from './components/Header';
 
 import './global.css';
 
@@ -12,25 +14,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <div className="layout">
       <Sidebar />
       <div className="content">
-        <main className="timeline">
-          <Header title="Home" />
-
-          <form className="new-tweet-form">
-            <label htmlFor="tweet">
-              <img
-                src="https://github.com/pedromakengo.png"
-                alt="Pedro Makengo"
-              />
-              <textarea id="tweet" placeholder="What's happening?" />
-            </label>
-            <button type="submit">Tweet</button>
-          </form>
-
-          <div className="separator" />
-
-          <Tweet />
-          <Tweet />
-        </main>
+        <RouterProvider router={router} />
       </div>
     </div>
   </React.StrictMode>
