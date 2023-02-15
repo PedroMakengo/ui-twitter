@@ -1,6 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import {
+  Bell,
+  BookmarkSimple,
+  DotsThreeCircle,
+  Envelope,
+  FileText,
+  Hash,
+  House,
+  Sparkle,
+  User,
+} from 'phosphor-react';
+
 import logoTwitter from './assets/logo-twitter.svg';
 
 import './global.css';
@@ -12,19 +24,64 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <img src={logoTwitter} alt="" className="logo" />
 
         <nav className="main-navigation">
-          <a href="">Home</a>
-          <a href="">Explore</a>
-          <a href="">Notifications</a>
-          <a href="">Messages</a>
-          <a href="">Lists</a>
-          <a href="">Profile</a>
-          <a href="">More</a>
+          <a href="" className="active">
+            <House weight="fill" />
+            Home
+          </a>
+          <a href="">
+            <Hash weight="fill" />
+            Explore
+          </a>
+          <a href="">
+            <Bell />
+            Notifications
+          </a>
+          <a href="">
+            <Envelope />
+            Messages
+          </a>
+          <a href="">
+            <BookmarkSimple />
+            Bookmarks
+          </a>
+          <a href="">
+            <FileText />
+            Lists
+          </a>
+          <a href="">
+            <User />
+            Profile
+          </a>
+          <a href="">
+            <DotsThreeCircle />
+            More
+          </a>
         </nav>
         <button className="new-tweet" type="button">
           Tweet
         </button>
       </aside>
-      <div className="content">Content</div>
+      <div className="content">
+        <main className="timeline">
+          <div className="timeline-header">
+            Home
+            <Sparkle />
+          </div>
+
+          <form className="new-tweet-form">
+            <label htmlFor="tweet">
+              <img
+                src="https://github.com/pedromakengo.png"
+                alt="Pedro Makengo"
+              />
+              <textarea id="tweet" placeholder="What's happening?" />
+            </label>
+            <button type="submit">Tweet</button>
+          </form>
+
+          <div className="separator" />
+        </main>
+      </div>
     </div>
   </React.StrictMode>
 );
