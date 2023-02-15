@@ -1,19 +1,38 @@
+import { FormEvent, useState } from 'react';
+
 import { Header } from '../../components/Header';
 import { Separator } from '../../components/Separator';
 import { Tweet } from '../../components/Tweet';
 import './styles.css';
 
-const tweets = ['Meu primeiro tweet', 'Teste', 'Deu cert tweetar'];
-
 export function Timeline() {
+  const [newTweet, setNewTweet] = useState('');
+  const [tweets, setTweets] = useState([
+    'Meu primeiro tweet',
+    'Teste',
+    'Deu cert tweetar',
+  ]);
+
+  function createNewTweet(event: FormEvent) {
+    event.preventDefault();
+
+    setTweets([...tweets, newTweet]);
+    setNewTweet('');
+  }
+
   return (
     <main className="timeline">
       <Header title="Home" />
 
-      <form className="new-tweet-form">
+      <form className="new-tweet-form" onSubmit={createNewTweet}>
         <label htmlFor="tweet">
           <img src="https://github.com/pedromakengo.png" alt="Pedro Makengo" />
-          <textarea id="tweet" placeholder="What's happening?" />
+          <textarea
+            id="tweet"
+            value={newTweet}
+            onChange={event => setNewTweet(event.target.value)}
+            placeholder="What's happening?"
+          />
         </label>
         <button type="submit">Tweet</button>
       </form>
